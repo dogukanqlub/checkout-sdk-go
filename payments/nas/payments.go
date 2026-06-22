@@ -81,6 +81,12 @@ type (
 	PartialAuthorization struct {
 		Enabled bool `json:"enabled,omitempty"`
 	}
+
+	PaymentPlan struct {
+		AmountVariability     string `json:"amount_variability,omitempty"`
+		TotalNumberOfPayments int    `json:"total_number_of_payments,omitempty"`
+		CurrentPaymentNumber  int    `json:"current_payment_number,omitempty"`
+	}
 )
 
 // Request
@@ -118,6 +124,7 @@ type (
 		Retry                *payments.PaymentRetryRequest `json:"retry,omitempty"`
 		Metadata             map[string]interface{}        `json:"metadata,omitempty"`
 		Instruction          *PaymentInstruction           `json:"instruction,omitempty"`
+		PaymentPlan          *PaymentPlan                  `json:"payment_plan,omitempty"`
 	}
 
 	PayoutRequest struct {
